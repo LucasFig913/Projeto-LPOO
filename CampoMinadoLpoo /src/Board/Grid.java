@@ -16,7 +16,7 @@ public class Grid extends JPanel{
 		addCells();
 	}
 
-	public void addCells() {
+	public void createCells() {
 		for(int i = 1; i<= Game.MINECOUNT; i++) {
 			while(!picked) {
 				int minePosition = (int)(Math.random()*bound);
@@ -68,7 +68,7 @@ public class Grid extends JPanel{
 		
 	}
 
-	public void createCells() {
+	public void addCells() {
 		
 		
 	}
