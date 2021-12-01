@@ -31,7 +31,7 @@ public class Grid extends JPanel{
 			if(mines.contains(i)) {
 				 cellGrid.add(new Cell(1, i, false, false));
 			}else if(i % Game.CELLSIZE == 0){
-				if(mines.contains(i - Game.CELLSIZE)    ||
+				if(mines.contains(i - Game.CELLSIZE)                 ||
 						mines.contains(i - Game.CELLSIZE+1)  ||
 						mines.contains(i +1)                 ||
 						mines.contains(i + Game.CELLSIZE)    ||
