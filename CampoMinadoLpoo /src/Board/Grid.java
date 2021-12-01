@@ -30,7 +30,27 @@ public class Grid extends JPanel{
 		for(int i = 0; i < bound; i++) {
 			if(mines.contains(i)) {
 				 cellGrid.add(new Cell(1, i, false, false));
-			}else{
+			}else if(i % Game.CELLSIZE == 0){
+				if(mines.contains(i - Game.CELLSIZE)    ||
+						mines.contains(i - Game.CELLSIZE+1)  ||
+						mines.contains(i +1)                 ||
+						mines.contains(i + Game.CELLSIZE)    ||
+						mines.contains(i + Game.CELLSIZE + 1)) {
+					cellGrid.add(new Cell(2, i, false, false));
+				}else {
+					cellGrid.add(new Cell(0, i, false, false));
+				}
+			}else if(i % Game.CELLSIZE == Game.CELLSIZE - 1){
+				if(mines.contains(i - Game.CELLSIZE - 1)     || 
+						mines.contains(i - Game.CELLSIZE)    ||
+						mines.contains(i - 1)                ||
+						mines.contains(i + Game.CELLSIZE - 1)||
+						mines.contains(i + Game.CELLSIZE)) {
+					cellGrid.add(new Cell(2, i, false, false));
+				}else {
+					cellGrid.add(new Cell(0, i, false, false));
+				}
+				}else{
 				if(mines.contains(i - Game.CELLSIZE - 1)     || 
 						mines.contains(i - Game.CELLSIZE)    ||
 						mines.contains(i - Game.CELLSIZE+1)  ||
