@@ -30,8 +30,7 @@ public class Window {
 
         frame.setVisible(true);
     }
-
     public static void update(int flagged) {
-        frame.setTitle(title + "Minas: " + Game.MINECOUNT + " - Bandeiras: " + flagged);
+    	frame.setTitle(title + "Minas: " + Game.MINECOUNT + " - Bandeiras: " + flagged);
     }
 }
