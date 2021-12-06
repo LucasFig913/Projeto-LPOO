@@ -21,6 +21,7 @@ public class Game {
     public Game() {
         new Window(WIDTH, HEIGHT, GRIDSIZE, "Campo minado - ", this, handler);
         Window.update(0);
+        Menu menu = new Menu(this.WIDTH, this.HEIGHT, this.GRIDSIZE);
     }
 
     public static void main(String[] args) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
