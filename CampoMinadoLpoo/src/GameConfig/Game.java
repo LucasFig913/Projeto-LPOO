@@ -32,7 +32,8 @@ public class Game {
     	if(gameState == "NORMAL") {
             new Game();
     	}else if(gameState == "MENU") {
-            Menu menu = new Menu(WIDTH, HEIGHT, GRIDSIZE);
+            Menu menu = new Menu(WIDTH, HEIGHT);
+            menu.setVisible(true);
     	}
     }
     
@@ -40,7 +41,7 @@ public class Game {
     public static void main(String[] args) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
     	update();
     	
-    	/*File file = new File("bomba.wav");
+    	File file = new File("bomba.wav");
     	AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
     	Clip clip = AudioSystem.getClip();
     	clip.open(audioStream);
@@ -48,7 +49,7 @@ public class Game {
     	clip.start();*/
     	
     	
-    	//Menu menu = new Menu(WIDTH, HEIGHT, GRIDSIZE);
+    	Menu menu = new Menu(WIDTH, HEIGHT, GRIDSIZE);
     	
 
     }
