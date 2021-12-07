@@ -33,7 +33,7 @@ public class Game {
             new Game();
     	}else if(gameState == "MENU") {
             Menu menu = new Menu(WIDTH, HEIGHT);
-            menu.setVisible(true);
+           
     	}
     }
     
