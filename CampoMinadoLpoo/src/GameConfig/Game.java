@@ -1,4 +1,5 @@
 package GameConfig;
+import java.awt.Graphics;
 import java.io.File;
 import java.io.IOException;
 
@@ -9,31 +10,47 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
 import Board.Handler;
+import GameConfig.Menu;
 
 public class Game {
 
-    public static final int WIDTH = 720, HEIGHT = 720;
-    public static final int GRIDSIZE = 15;
-    public static final int MINECOUNT = (int) Math.round(GRIDSIZE * GRIDSIZE * .1);
+    public static int WIDTH = 720, HEIGHT = 720;
+    public static int GRIDSIZE = 15;
+    public static int MINECOUNT = (int) Math.round(GRIDSIZE * GRIDSIZE * .1);
+    public static String gameState = "MENU";
 
-    private Handler handler = new Handler();
+    public Handler handler = new Handler();
+
 
     public Game() {
-        new Window(WIDTH, HEIGHT, GRIDSIZE, "Campo minado - ", this, handler);
+        new Window(WIDTH, HEIGHT, GRIDSIZE, "Campo minado - ", this, handler);  
         Window.update(0);
-        Menu menu = new Menu(this.WIDTH, this.HEIGHT, this.GRIDSIZE);
+        
     }
+    
+    public static void update() {
+    	if(gameState == "NORMAL") {
+            new Game();
+    	}else if(gameState == "MENU") {
+            Menu menu = new Menu(WIDTH, HEIGHT, GRIDSIZE);
+    	}
+    }
+    
 
     public static void main(String[] args) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
+    	update();
     	
-    	File file = new File("bomba.wav");
+    	/*File file = new File("bomba.wav");
     	AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
     	Clip clip = AudioSystem.getClip();
     	clip.open(audioStream);
     	
-    	clip.start();
+    	clip.start();*/
     	
-        new Game();
+    	
+    	//Menu menu = new Menu(WIDTH, HEIGHT, GRIDSIZE);
+    	
+
     }
 
 }
