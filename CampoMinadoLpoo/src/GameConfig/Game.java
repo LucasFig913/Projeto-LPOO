@@ -18,7 +18,7 @@ public class Game {
     public static int WIDTH = 720, HEIGHT = 720;
     public static int GRIDSIZE = 15;
     public static int MINECOUNT = (int) Math.round(GRIDSIZE * GRIDSIZE * .1);
-    public static String gameState = "MENU";
+    public static String gameState;
 
     public Handler handler = new Handler();
 
@@ -30,8 +30,10 @@ public class Game {
     }
     
     public static void update() {
+    	gameState = "MENU";
     	if(gameState == "NORMAL") {
             new Game();
+            System.out.println("foi");
     	}else if(gameState == "MENU") {
     		EventQueue.invokeLater(new Runnable() {
     			public void run() {
@@ -62,3 +64,4 @@ public class Game {
     }
 
 }
+
