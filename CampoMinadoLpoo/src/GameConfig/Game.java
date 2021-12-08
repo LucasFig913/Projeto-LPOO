@@ -18,15 +18,22 @@ public class Game {
     public static int WIDTH = 720, HEIGHT = 720;
     public static int GRIDSIZE = 15;
     public static int MINECOUNT = (int) Math.round(GRIDSIZE * GRIDSIZE * .1);
+    public static int difficulty = 1;
     public static String gameState;
 
     public Handler handler = new Handler();
 
 
     public Game() {
-        new Window(WIDTH, HEIGHT, GRIDSIZE, "Campo minado - ", this, handler);  
+        if(difficulty == 1) {
+    		GRIDSIZE = 15;
+    	}else if(difficulty == 2){
+    		GRIDSIZE = 20;
+    	}else if(difficulty == 3) {
+    		GRIDSIZE = 25;
+    	}
+    	new Window(WIDTH, HEIGHT, GRIDSIZE, "Campo minado - ", this, handler);  
         Window.update(0);
-        
     }
     
     public static void update() {
