@@ -13,16 +13,13 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 
-public class Menu extends JFrame {
+public class Menu extends JFrame{
 
 	private JPanel contentPane;
-
-	/**
-	 * Launch the application.
-	 */
-	/**
-	 * Create the frame.
-	 */
+	static JButton PLAY;
+	JButton DIFICULTY;
+	JButton RANKING;
+	
 	public Menu() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -33,14 +30,15 @@ public class Menu extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton PLAY = new JButton("PLAY");
+		PLAY = new JButton("PLAY");
 		PLAY.setBackground(Color.BLACK);
 		PLAY.setForeground(Color.BLACK);
 		PLAY.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 11));
 		PLAY.setBounds(161, 94, 106, 43);
+		PLAY.addActionListener(e -> Game.gameState="NORMAL");
 		contentPane.add(PLAY);
-		
-		JButton DIFICULTY = new JButton("DIFFICULTY");
+				
+		DIFICULTY = new JButton("DIFFICULTY");
 		DIFICULTY.setBackground(Color.BLACK);
 		DIFICULTY.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -49,7 +47,7 @@ public class Menu extends JFrame {
 		DIFICULTY.setBounds(161, 148, 106, 23);
 		contentPane.add(DIFICULTY);
 		
-		JButton RANKING = new JButton("RANKING");
+		RANKING = new JButton("RANKING");
 		RANKING.setBackground(Color.BLACK);
 		RANKING.setBounds(161, 182, 106, 23);
 		contentPane.add(RANKING);
@@ -60,4 +58,6 @@ public class Menu extends JFrame {
 		CampoMinado.setBounds(45, 31, 348, 43);
 		contentPane.add(CampoMinado);
 	}
+
+
 }
