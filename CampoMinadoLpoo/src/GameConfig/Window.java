@@ -46,6 +46,8 @@ public class Window {
 		
 	}
 	public static void update(int flagged) {
-    	frame.setTitle("Minas: " + Game.MINECOUNT + " - Bandeiras: " + flagged);
+    	Timer teste = new Timer();
+		frame.setTitle("Minas: " + Game.MINECOUNT + " - Bandeiras: " + flagged);
+		teste.run(999);
     }
 }
