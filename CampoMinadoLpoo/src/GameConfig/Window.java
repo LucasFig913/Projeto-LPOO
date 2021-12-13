@@ -19,6 +19,7 @@ public class Window {
 
     private static JFrame frame;
     private static String title;
+    private static int titleArea = 1;
 
     public Window(int width, int height, int gridSize, String title, Game game, Handler handler) {
         Window.title = title;
@@ -42,12 +43,11 @@ public class Window {
 
     }
     private void setJMenuBar(JMenuBar menuBar) {
-		// TODO Auto-generated method stub
-		
-	}
-	public static void update(int flagged) {
-    	Timer teste = new Timer();
-		frame.setTitle("Minas: " + Game.MINECOUNT + " - Bandeiras: " + flagged);
-		teste.run(999);
+        // TODO Auto-generated method stub
+        
+    }
+    public static void update(int flagged) {
+            frame.setTitle("Minas: " + Game.MINECOUNT + " - Bandeiras: " + flagged);
+
     }
 }
