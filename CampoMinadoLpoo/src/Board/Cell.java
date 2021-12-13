@@ -8,7 +8,10 @@ import java.io.IOException;
 
 public class Cell extends JButton {
 
-    private int type;
+    /**
+	 * 
+	 */
+	private int type;
     private int position;
     private boolean discovered;
     private boolean flagged;
