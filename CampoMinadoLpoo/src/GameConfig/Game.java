@@ -18,6 +18,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JFrame;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 import Board.Handler;
 
@@ -29,6 +31,7 @@ public class Game extends JFrame {
     public static int key = 1;
     public Handler handler = new Handler();
 	private JPanel contentPane;
+	public static boolean gameinit = false;
 
 
 	public static void main(String[] args) {
@@ -58,16 +61,17 @@ public class Game extends JFrame {
 		contentPane.setLayout(null);
 		
 		JButton PLAY = new JButton("PLAY");
-		PLAY.setBackground(Color.BLACK);
+		PLAY.setBackground(Color.WHITE);
 		PLAY.setForeground(Color.BLACK);
 		PLAY.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 11));
 		PLAY.setBounds(161, 94, 106, 43);
 		PLAY.addActionListener(e -> gameInicialization());
 		PLAY.addActionListener(e -> dispose());
+		PLAY.addActionListener(e -> Game.gameinit = true);
 		contentPane.add(PLAY);
 		
 		JButton EASY = new JButton("EASY");
-		EASY.setBackground(Color.BLACK);
+		EASY.setBackground(Color.WHITE);
 		EASY.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				key = 1;
@@ -77,7 +81,7 @@ public class Game extends JFrame {
 		contentPane.add(EASY);
 		
 		JButton NORMAL = new JButton("NORMAL");
-		NORMAL.setBackground(Color.BLACK);
+		NORMAL.setBackground(Color.WHITE);
 		NORMAL.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				key = 2;
@@ -87,7 +91,7 @@ public class Game extends JFrame {
 		contentPane.add(NORMAL);
 		
 		JButton HARD = new JButton("HARD");
-		HARD.setBackground(Color.BLACK);
+		HARD.setBackground(Color.WHITE);
 		HARD.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				key = 3;
@@ -97,9 +101,16 @@ public class Game extends JFrame {
 		contentPane.add(HARD);
 		
 		JButton RANKING = new JButton("RANKING");
-		RANKING.setBackground(Color.BLACK);
+		RANKING.setBackground(Color.WHITE);
 		RANKING.setBounds(161, 252, 106, 23);
 		contentPane.add(RANKING);
+		
+		JButton LOADGAME = new JButton("LOAD GAME");
+		LOADGAME.setBackground(Color.WHITE);
+		LOADGAME.setBounds(161, 286, 106, 23);
+		contentPane.add(LOADGAME);
+
+		
 		
 		
 		JLabel CampoMinado = new JLabel("CampoMinado");
@@ -109,18 +120,23 @@ public class Game extends JFrame {
 		contentPane.add(CampoMinado);
 
 	}
-    public void gameInicialization() {
+    public void gameInicialization() {    	
+    	this.gameinit = true;
     	if(key == 1) {
     		GRIDSIZE = 15;
-    	}else if(key == 2){
+    	}else if(key == 2){ 
     		GRIDSIZE = 20;
     	}else if(key == 3) {
     		GRIDSIZE = 25;
     	}
     	new Window(WIDTH, HEIGHT, GRIDSIZE, "Campo minado - ", this, handler);  
-        Window.update(0);   
-        
-        
+        Window.update(0);
+    } 
+    public void restartGame() {
+    	
     }
-    
+        
+        
+
+   
 }

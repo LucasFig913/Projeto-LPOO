@@ -7,12 +7,18 @@ import Board.Handler;
 
 public class Timer implements Runnable{
 		private static boolean exit = false;
-	    private static int seconds;
+	    public static int seconds;
 	   
-	    public int run(int benga) {
+	    public static int getSeconds() {
+			return seconds;
+		}
+		public void setSeconds(int seconds) {
+			this.seconds = seconds;
+		}
+		public int run(int x) {
 	    	while (!exit) {
 	            this.seconds++;
-	            if(this.seconds==benga)
+	            if(this.seconds==x)
 	            	System.exit(0);
 	            try {
 	                Thread.sleep(1000);
