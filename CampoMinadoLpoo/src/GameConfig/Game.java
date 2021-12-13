@@ -17,9 +17,9 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JFrame;
 
 import Board.Handler;
-import GameConfig.Menu;
 
 public class Game extends JFrame {
 
@@ -30,9 +30,7 @@ public class Game extends JFrame {
     public Handler handler = new Handler();
 	private JPanel contentPane;
 
-	/**
-	 * Launch the application.
-	 */
+
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -44,11 +42,11 @@ public class Game extends JFrame {
 				}
 			}
 		});
+		Timer teste = new Timer();
+		teste.run(999);
 	}
 
-	/**
-	 * Create the frame.
-	 */
+
 	public Game() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -65,21 +63,16 @@ public class Game extends JFrame {
 		PLAY.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 11));
 		PLAY.setBounds(161, 94, 106, 43);
 		PLAY.addActionListener(e -> gameInicialization());
+		PLAY.addActionListener(e -> dispose());
 		contentPane.add(PLAY);
 		
-		JButton DIFICULTY = new JButton("DIFFICULTY");
-		DIFICULTY.setBackground(Color.BLACK);
-		DIFICULTY.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		DIFICULTY.setBounds(161, 148, 106, 23);
-		contentPane.add(DIFICULTY);
+
 		
 		JButton RANKING = new JButton("RANKING");
 		RANKING.setBackground(Color.BLACK);
-		RANKING.setBounds(161, 182, 106, 23);
+		RANKING.setBounds(161, 252, 106, 23);
 		contentPane.add(RANKING);
+		
 		
 		JLabel CampoMinado = new JLabel("CampoMinado");
 		CampoMinado.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 46));
@@ -97,8 +90,9 @@ public class Game extends JFrame {
     		GRIDSIZE = 25;
     	}
     	new Window(WIDTH, HEIGHT, GRIDSIZE, "Campo minado - ", this, handler);  
-        Window.update(0);    
+        Window.update(0);   
+        
+        
     }
+    
 }
-
-
