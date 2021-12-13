@@ -49,7 +49,7 @@ public class Game extends JFrame {
 
 	public Game() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 450, 400);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.LIGHT_GRAY);
 		contentPane.setForeground(Color.GREEN);
@@ -66,7 +66,35 @@ public class Game extends JFrame {
 		PLAY.addActionListener(e -> dispose());
 		contentPane.add(PLAY);
 		
-
+		JButton EASY = new JButton("EASY");
+		EASY.setBackground(Color.BLACK);
+		EASY.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				key = 1;
+			}
+		});
+		EASY.setBounds(161, 148, 106, 23);
+		contentPane.add(EASY);
+		
+		JButton NORMAL = new JButton("NORMAL");
+		NORMAL.setBackground(Color.BLACK);
+		NORMAL.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				key = 2;
+			}
+		});
+		NORMAL.setBounds(161, 184, 106, 23);
+		contentPane.add(NORMAL);
+		
+		JButton HARD = new JButton("HARD");
+		HARD.setBackground(Color.BLACK);
+		HARD.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				key = 3;
+			}
+		});
+		HARD.setBounds(161, 218, 106, 23);
+		contentPane.add(HARD);
 		
 		JButton RANKING = new JButton("RANKING");
 		RANKING.setBackground(Color.BLACK);
