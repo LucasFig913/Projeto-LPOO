@@ -16,8 +16,10 @@ public class Handler {
 
     private ArrayList<Cell> current = new ArrayList<Cell>();
     private ArrayList<Cell> queue = new ArrayList<Cell>();
-    private String unicBomb = "U+1F4A3";
-    private String unicFlag = "\uD83D\uDEA9";
+    private String unicBomb = "\uD83D\uDCA3";
+    private String unicFlag = "\u2691";
+    private String unicExplosion = "\uD83D\uDCA5";
+
 
     private static int flaggedCells = 0;
     
@@ -147,7 +149,7 @@ public class Handler {
                     Grid.cellGrid.get(x).setText("");
                     if(Grid.cellGrid.get(x).getType() == 1) {Grid.cellGrid.get(x).setText(unicBomb.toUpperCase());}
                 }
-                cell.setText("BOOM");
+                cell.setText(unicExplosion);
                 File file = new File("boom.wav");
             	AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
             	Clip clip = AudioSystem.getClip();
@@ -205,3 +207,4 @@ public class Handler {
         }
     }
 }
+
