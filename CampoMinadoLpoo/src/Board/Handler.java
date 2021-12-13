@@ -10,6 +10,7 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
 import GameConfig.Game;
+import GameConfig.Timer;
 import GameConfig.Window;
 
 public class Handler {
@@ -149,6 +150,7 @@ public class Handler {
                     Grid.cellGrid.get(x).setText("");
                     if(Grid.cellGrid.get(x).getType() == 1) {Grid.cellGrid.get(x).setText(unicBomb.toUpperCase());}
                 }
+                Timer.stop();
                 cell.setText(unicExplosion);
                 File file = new File("boom.wav");
             	AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
