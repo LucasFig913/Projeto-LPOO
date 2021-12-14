@@ -31,7 +31,17 @@ public class Game extends JFrame {
     public static int key = 1;
     public Handler handler = new Handler();
 	private JPanel contentPane;
-	public static boolean gameinit = false;
+	private static boolean gameinit = false;
+
+
+	public static boolean isGameinit() {
+		return gameinit;
+	}
+
+
+	public static void setGameinit(boolean gameinit) {
+		Game.gameinit = gameinit;
+	}
 
 
 	public static void main(String[] args) {
@@ -105,6 +115,12 @@ public class Game extends JFrame {
 		RANKING.setBackground(Color.WHITE);
 		RANKING.setBounds(161, 252, 106, 23);
 		contentPane.add(RANKING);
+		RANKING.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Ranking ranking2 = new Ranking(null, 0);
+				ranking2.showRanking();
+			}
+		});
 
 		
 		JButton LOADGAME = new JButton("LOAD GAME");
@@ -125,11 +141,11 @@ public class Game extends JFrame {
     public void gameInicialization() {    	
     	this.gameinit = true;
     	if(key == 1) {
-    		GRIDSIZE = 15;
+    		GRIDSIZE = 10;
     	}else if(key == 2){ 
-    		GRIDSIZE = 20;
+    		GRIDSIZE = 12;
     	}else if(key == 3) {
-    		GRIDSIZE = 25;
+    		GRIDSIZE = 15;
     	}
     	new Window(WIDTH, HEIGHT, GRIDSIZE, "Campo minado - ", this, handler);  
         Window.update(0);
