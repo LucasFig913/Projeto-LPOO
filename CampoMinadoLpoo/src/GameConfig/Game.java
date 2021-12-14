@@ -39,6 +39,7 @@ public class Game extends JFrame {
 			public void run() {
 				try {
 					Game frame = new Game();
+					
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -104,6 +105,7 @@ public class Game extends JFrame {
 		RANKING.setBackground(Color.WHITE);
 		RANKING.setBounds(161, 252, 106, 23);
 		contentPane.add(RANKING);
+
 		
 		JButton LOADGAME = new JButton("LOAD GAME");
 		LOADGAME.setBackground(Color.WHITE);
