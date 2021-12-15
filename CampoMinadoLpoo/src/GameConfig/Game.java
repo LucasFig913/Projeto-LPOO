@@ -32,6 +32,7 @@ public class Game extends JFrame {
 	private JPanel contentPane;
 	private static boolean gameinit = false;
 	private boolean exit = false;
+	private static int x1 = 999;
 
 
 	public boolean isExit() {
@@ -47,6 +48,7 @@ public class Game extends JFrame {
 	public static void setGameinit(boolean gameinit) {
 		Game.gameinit = gameinit;
 	}
+	Thread t1 = new Thread(Timer.timer);
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -58,8 +60,8 @@ public class Game extends JFrame {
 					}
 			}
 		});
-		Timer teste = new Timer();
-		teste.run(999);
+	
+
 	}
 
 
@@ -95,6 +97,7 @@ public class Game extends JFrame {
 		PLAY.addActionListener(e -> dispose());
 		PLAY.addActionListener(e -> Game.gameinit = true);
 		contentPane.add(PLAY);
+		PLAY.addActionListener(e -> t1.start());//new Thread(Timer.t1).start());
 		
 		JButton EASY = new JButton("EASY");
 		EASY.setBackground(Color.WHITE);
@@ -155,6 +158,7 @@ public class Game extends JFrame {
 	}
     public void gameInicialization() throws UnsupportedAudioFileException, IOException, LineUnavailableException {    	
     	Game.gameinit = true;
+    	
     	if(key == 1) {
     		GRIDSIZE = 15;
     	}else if(key == 2){ 
