@@ -1,21 +1,21 @@
 package GameConfig;
-
+/*
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.io.IOException;
+import java.io.IOException;*/
 
 public class SaveProgress{
-	public static void applySaveProgress(String str) {
+	/*public static void applySaveProgress(String str) {
 		String[] spl = str.split("/");
 		for(int i = 0; i < spl.length;i++) {
 			String[] spl2 = spl[i].split(":");
 			switch(spl2[0]) {
 			case "level":
-				Game.gameinit = true;
+				Game.setGameinit(true);
 				break;
 			}
 		}
@@ -77,6 +77,6 @@ public class SaveProgress{
 		}catch(IOException e) {
 			
 		}
-	}
+	}*/
 	
 }

@@ -1,19 +1,12 @@
 package GameConfig;
-import javax.swing.*;
-import java.awt.event.ActionListener;
-import javax.swing.ButtonGroup;
-import javax.swing.JCheckBoxMenuItem;
+import java.awt.Dimension;
+import java.awt.GridLayout;
+
 import javax.swing.JFrame;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.JRadioButtonMenuItem;
-import javax.sound.sampled.*;
+import javax.swing.JPanel;
 
 import Board.Grid;
 import Board.Handler;
-
-import java.awt.*;
 
 public class Window {
 
@@ -22,7 +15,7 @@ public class Window {
     private static int titleArea = 1;
 
     public Window(int width, int height, int gridSize, String title, Game game, Handler handler) {
-        Window.title = title;
+        Window.setTitle(title);
         frame = new JFrame(title);
 
         frame.setPreferredSize(new Dimension(width, height));
@@ -42,12 +35,20 @@ public class Window {
 
 
     }
-    private void setJMenuBar(JMenuBar menuBar) {
-        // TODO Auto-generated method stub
-        
-    }
     public static void update(int flagged) {
             frame.setTitle("Minas: " + Game.MINECOUNT + " - Bandeiras: " + flagged);
 
     }
+	public static int getTitleArea() {
+		return titleArea;
+	}
+	public static void setTitleArea(int titleArea) {
+		Window.titleArea = titleArea;
+	}
+	public static String getTitle() {
+		return title;
+	}
+	public static void setTitle(String title) {
+		Window.title = title;
+	}
 }

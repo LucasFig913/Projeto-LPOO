@@ -1,34 +1,40 @@
 package GameConfig;
 
-import java.util.concurrent.atomic.AtomicBoolean;
+import javax.swing.JOptionPane;
 
-import Board.Cell;
-import Board.Handler;
+import Exceptions.ExcededTime;
 
 public class Timer implements Runnable{
 		private static boolean exit = false;
-	    public static int seconds;
+	    private static int seconds;
+	    public String seconds2;
 	   
 	    public static int getSeconds() {
 			return seconds;
 		}
 		public void setSeconds(int seconds) {
-			this.seconds = seconds;
+			Timer.seconds = seconds;
 		}
 		public int run(int x) {
 	    	while (!exit) {
-	            this.seconds++;
-	            if(this.seconds==x)
-	            	System.exit(0);
+	            Timer.seconds++;
+		         if(Timer.seconds == x){
+	            	try {
+		            	throw new ExcededTime(x);	            	
+		            }catch(ExcededTime e) {
+		            	JOptionPane.showMessageDialog(null,"Exceded Time");		       
+		            	exit = true;
+		            }
+		         }
 	            try {
 	                Thread.sleep(1000);
 	            } catch (Exception e) {
 	            	
 	            }
-	            System.out.println(this.seconds);
+	            System.out.println(Timer.seconds);
 	        	
 	    	}
-			return this.seconds;
+			return Timer.seconds;
 	    }
 	    public static void stop(){
 	   
@@ -36,7 +42,6 @@ public class Timer implements Runnable{
 	    }
 		@Override
 		public void run() {
-			// TODO Auto-generated method stub
 			
 		}
 	}
