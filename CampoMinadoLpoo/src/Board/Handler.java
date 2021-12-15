@@ -157,7 +157,8 @@ public class Handler extends Emoji implements SoundEfects{
                 Ranking saveR = new Ranking(this.name, Timer.getSeconds());     
                 saveR.rankingSave();
                 cell.setText(super.getUnicExplosion());
-                SoundEfects.deathEffect();
+                //SoundEfects.deathEffect();
+                System.exit(0);
             }  
 
             for(int x = 0; x < queue.size(); x++) {
@@ -210,4 +211,5 @@ public class Handler extends Emoji implements SoundEfects{
     }
     
 }
+
 
