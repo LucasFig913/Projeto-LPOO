@@ -1,6 +1,5 @@
 package Board;
 import java.io.File;
-
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -12,15 +11,8 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 
 import GameConfig.Game;
 import GameConfig.Ranking;
-import GameConfig.SaveProgress;
-import GameConfig.SaveProgress;
 import GameConfig.Timer;
 import GameConfig.Window;
-
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 
 
 public class Handler{
@@ -30,9 +22,8 @@ public class Handler{
     private String unicBomb = "\uD83D\uDCA3";
     private String unicFlag = "\u2691";
     private String unicExplosion = "\uD83D\uDCA5";
-    public  String name;
-    
-    public static boolean saveExistsProg = false;
+    private String name;
+	public static boolean saveExistsProg = false;
     public static boolean saveGameProg = true;
 
     private static int flaggedCells = 0;
@@ -164,10 +155,8 @@ public class Handler{
                     if(Grid.cellGrid.get(x).getType() == 1) {Grid.cellGrid.get(x).setText(unicBomb.toUpperCase());}
                 }
                 Timer.stop();
-                this.name = JOptionPane.showInputDialog("Insira Seu Nome");
-                Ranking saveRanking = new Ranking(this.name, Timer.getSeconds());
-                saveRanking.save();
-                saveRanking.lerLista();
+                Ranking saveR = new Ranking(this.name, Timer.getSeconds());     
+                saveR.rankingSave();
                 cell.setText(unicExplosion);
                 File file = new File("boom.wav");
             	AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
@@ -225,5 +214,6 @@ public class Handler{
             }
         }
     }
+    
 }
 

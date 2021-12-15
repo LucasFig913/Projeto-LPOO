@@ -11,6 +11,10 @@ public class Cell extends JButton {
     /**
 	 * 
 	 */
+	private static final long serialVersionUID = 1L;
+	/**
+	 * 
+	 */
 	private int type;
     private int position;
     private boolean discovered;

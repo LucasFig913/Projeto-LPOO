@@ -8,7 +8,12 @@ import java.util.ArrayList;
 
 public class Grid extends JPanel {
 
-    private int bound = Game.GRIDSIZE * Game.GRIDSIZE;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	private int bound = Game.GRIDSIZE * Game.GRIDSIZE;
 
     private boolean picked = false;
 
