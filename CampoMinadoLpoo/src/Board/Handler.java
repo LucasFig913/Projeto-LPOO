@@ -1,7 +1,11 @@
 package Board;
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
@@ -153,7 +157,7 @@ public class Handler extends Emoji implements SoundEfects{
                 Ranking saveR = new Ranking(this.name, Timer.getSeconds());     
                 saveR.rankingSave();
                 cell.setText(super.getUnicExplosion());
-                //SoundEfects.deathEffect();
+                SoundEfects.deathEffect();
                 System.exit(0);
             }  
 
@@ -177,10 +181,11 @@ public class Handler extends Emoji implements SoundEfects{
             }
 
             if(discoveredCells == Grid.cellGrid.size() - Game.MINECOUNT) {
+            	
                 for(int x = 0; x < Grid.cellGrid.size(); x++) {
                     if(Grid.cellGrid.get(x).getType() == 1) {
                         Grid.cellGrid.get(x).setEnabled(false);
-                        Grid.cellGrid.get(x).setText(super.getUnicBomb().toUpperCase());
+                        Grid.cellGrid.get(x).setText(super.getUnicBomb().toUpperCase());                        
                     } else {
                         Grid.cellGrid.get(x).setEnabled(false);
                         Grid.cellGrid.get(x).setText(":)");
@@ -190,7 +195,8 @@ public class Handler extends Emoji implements SoundEfects{
         }   
     }
 
-    public void rightClick(Cell cell) {
+    public void rightClick(Cell cell) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
+    	SoundEfects.click();
         if(!cell.isDiscovered()) {
             if(!cell.isFlagged()) {
                 cell.setFlagged(true);
