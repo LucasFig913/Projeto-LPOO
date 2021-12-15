@@ -153,7 +153,7 @@ public class Handler extends Emoji implements SoundEfects{
                     Grid.cellGrid.get(x).setText("");
                     if(Grid.cellGrid.get(x).getType() == 1) {Grid.cellGrid.get(x).setText(super.getUnicBomb().toUpperCase());}
                 }
-                Timer.stop();
+                Timer.setExit(true);
                 Ranking saveR = new Ranking(this.name, Timer.getSeconds());     
                 saveR.rankingSave();
                 cell.setText(super.getUnicExplosion());
