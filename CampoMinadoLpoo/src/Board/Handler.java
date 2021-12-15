@@ -210,8 +210,31 @@ public class Handler extends Emoji implements SoundEfects{
                 Window.update(flaggedCells);
             }
         }
+        
+        
+    }
+    public void crazy(Cell cell) {
+    	if(Game.crazy == true) {
+    		if(!cell.isDiscovered()) {
+                if(!cell.isFlagged()) {
+                    cell.setFlagged(true);
+                    cell.setText(super.getUnicFlag());
+                    flaggedCells++;
+                    Window.update(flaggedCells);
+                    if(cell.getType() == 4) {
+                    	
+                    }
+                } else {
+                    cell.setFlagged(false);
+                    cell.setText("");
+                    flaggedCells--;
+                    Window.update(flaggedCells);
+                }
+            }
+    	}
+    }
     }
     
-}
+    
 
 
