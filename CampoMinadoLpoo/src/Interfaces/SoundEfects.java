@@ -28,5 +28,14 @@ public interface SoundEfects {
     	clip.start();
 	}
 	
+	static void click() throws UnsupportedAudioFileException, IOException, LineUnavailableException {
+		File file = new File("click.wav");
+    	AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
+    	Clip clip = AudioSystem.getClip();
+    	clip.open(audioStream);
+    	
+    	clip.start();
+	}
+	
 	
 }
