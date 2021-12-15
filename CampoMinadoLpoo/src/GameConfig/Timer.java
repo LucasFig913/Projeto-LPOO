@@ -9,12 +9,6 @@ public class Timer implements Runnable{
 		private static boolean exit;
 	    private static int seconds;
 
-	    public static int getSeconds() {
-			return seconds;
-		}
-		public void setSeconds(int seconds) {
-			Timer.seconds = seconds;
-		}
 		public static Runnable timer = new Runnable() {
 			public void run() {
 		           while(!exit) {
@@ -47,6 +41,12 @@ public class Timer implements Runnable{
 		public void run() {
 			// TODO Auto-generated method stub
 			
+		}
+	    public static int getSeconds() {
+			return seconds;
+		}
+		public void setSeconds(int seconds) {
+			Timer.seconds = seconds;
 		}
 
 	}

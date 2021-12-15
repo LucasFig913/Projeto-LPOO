@@ -11,6 +11,8 @@ import java.util.Collections;
 
 import javax.swing.JOptionPane;
 
+import Exceptions.InvalidAttribute;
+
 public class Ranking {
 	private  String name ;
 	private  String ext = "";
@@ -19,18 +21,6 @@ public class Ranking {
 	private String time2;
 	private int time;
 
-	public int getTime() {
-		return time;
-	}
-	public void setTime(int time) {
-		this.time = time;
-	}
-	public String getTime2() {
-		return time2;
-	}
-	public void setTime2(String time2) {
-		this.time2 = time2;
-	}
 	public Ranking(String name, int time) {
 		this.name = name;
 		this.time = time;
@@ -76,6 +66,28 @@ public class Ranking {
 	}
 	public String toString(){
 		return "Name: " + name + " ---- "+ " Time: " + time +" seconds \n";
+	}
+	public int getTime() {
+		return time;
+	}
+	public void setTime(int time) throws InvalidAttribute {
+		if(((Object)time).getClass().getSimpleName() != "Integer") {
+			throw new InvalidAttribute();
+		}
+		else {
+			this.time = time;
+		}
+	}
+	public String getTime2() {
+		return time2;
+	}
+	public void setTime2(String time2) throws InvalidAttribute {
+		if(time2.getClass().getSimpleName() != "Boolean") {
+			throw new InvalidAttribute();
+		}
+		else{
+			this.time2 = time2;
+		}
 	}
 
 }

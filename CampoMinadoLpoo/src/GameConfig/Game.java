@@ -5,7 +5,6 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JButton;
@@ -13,9 +12,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
-import Board.Cell;
 import Board.Handler;
+import Exceptions.InvalidAttribute;
 
 public class Game extends JFrame {
 
@@ -32,23 +30,9 @@ public class Game extends JFrame {
 	private JPanel contentPane;
 	private static boolean gameinit = false;
 	private boolean exit = false;
-	private static int x1 = 999;
 
-
-	public boolean isExit() {
-		return exit;
-	}
-	public void setExit(boolean exit) {
-		this.exit = exit;
-	}
-	
-	public static boolean isGameinit() {
-		return gameinit;
-	}
-	public static void setGameinit(boolean gameinit) {
-		Game.gameinit = gameinit;
-	}
 	Thread t1 = new Thread(Timer.timer);
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -170,5 +154,27 @@ public class Game extends JFrame {
         Window.update(0);
         
     }
+	public boolean isExit() {
+		return exit;
+	}
+	public void setExit(boolean exit) throws InvalidAttribute {
+		if(((Object)exit).getClass().getSimpleName() != "Boolean") {
+			throw new InvalidAttribute();
+		}else {
+			this.exit = exit;			
+		}
+	}
+	
+	public static boolean isGameinit() {
+		return gameinit;
+	}
+	public static void setGameinit(boolean gameinit) throws InvalidAttribute {
+		if(((Object)gameinit).getClass().getSimpleName() != "Boolean") {
+			throw new InvalidAttribute();
+		}
+		else {
+			Game.gameinit = gameinit;
+		}
+	}
 
 }

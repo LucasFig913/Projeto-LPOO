@@ -1,6 +1,10 @@
 package Exceptions;
 
 public class ExcededTime extends Exception {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int seconds;
 	private int x;
 	

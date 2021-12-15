@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 
 import Board.Grid;
 import Board.Handler;
+import Exceptions.InvalidAttribute;
 import Interfaces.SoundEfects;
 
 public class Window implements SoundEfects{
@@ -46,13 +47,18 @@ public class Window implements SoundEfects{
 	public static int getTitleArea() {
 		return titleArea;
 	}
-	public static void setTitleArea(int titleArea) {
-		Window.titleArea = titleArea;
+	public static void setTitleArea(int titleArea) throws InvalidAttribute {
+		if(((Object)titleArea).getClass().getSimpleName() != "Integer") {
+			throw new InvalidAttribute();
+		}
+		else {
+			Window.titleArea = titleArea;
+		}
 	}
 	public static String getTitle() {
 		return title;
 	}
 	public static void setTitle(String title) {
-		Window.title = title;
+		
 	}
 }
