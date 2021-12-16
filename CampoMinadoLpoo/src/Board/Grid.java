@@ -33,7 +33,7 @@ public class Grid extends JPanel {
     public Grid(GridLayout g, Handler h) throws IOException {
         super(g);
         createCells(h);
-        addCells(null);
+        addCells();
     	setBackground(new Color(0, 153, 0));
     }
 	public void createCells(Handler h) throws IOException {
@@ -123,12 +123,11 @@ public class Grid extends JPanel {
             }
     	}
 
-    private void addCells(Cell cell) throws IOException {
+    private void addCells() throws IOException {
  
         for(int i = 0; i < cellGrid.size(); i++) {
             add(cellGrid.get(i));
         }
-        escrever(cell);
  
     }
 	private void escrever(Cell cell) throws IOException {
@@ -153,3 +152,4 @@ public class Grid extends JPanel {
 
     }
 }
+
