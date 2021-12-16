@@ -17,12 +17,12 @@ import javax.swing.JOptionPane;
 import Exceptions.InvalidAttribute;
 
 public class SaveProgress{
-	public static  void progressSave(){
+	/*public static  void progressSave(){
 		try {
-		for(int k = 0 ; k < Grid.cellGrid.size(); k++){
+		for(int k = 0 ; k < Grid.addCells(); k++){
 			FileWriter writer = new FileWriter("saveProgress.txt",true);
 			PrintWriter writer2 = new PrintWriter(writer);
-			writer2.printf(Grid.cellGrid.get(k) +";");    
+			writer2.printf(Grid.cellGrid.get(k));    
 			writer2.flush();
 			writer2.close();
 			writer.close();
@@ -30,7 +30,7 @@ public class SaveProgress{
 		} catch (IOException e) {	
 			JOptionPane.showMessageDialog(null, "N�o foi possivel salvar, jogue novamente!");	
 		} 
-	}
+	}*/
 	
 	/*public static void applySaveProgress(String str) throws InvalidAttribute {
 		String[] spl = str.split("/");

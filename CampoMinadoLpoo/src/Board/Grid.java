@@ -2,11 +2,14 @@ package Board;
 import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.Image;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import GameConfig.Game;
@@ -26,10 +29,11 @@ public class Grid extends JPanel {
 
     public static ArrayList<Cell> cellGrid = new ArrayList<Cell>();
 
+    
     public Grid(GridLayout g, Handler h) throws IOException {
         super(g);
         createCells(h);
-        addCells();
+        addCells(null);
     	setBackground(new Color(0, 153, 0));
     }
 	public void createCells(Handler h) throws IOException {
@@ -118,13 +122,34 @@ public class Grid extends JPanel {
                 }
             }
     	}
-            
-        
-    
 
-    private void addCells() {
+    private void addCells(Cell cell) throws IOException {
+ 
         for(int i = 0; i < cellGrid.size(); i++) {
             add(cellGrid.get(i));
         }
+        escrever(cell);
+ 
+    }
+	private void escrever(Cell cell) throws IOException {
+        for(int i = 0; i < Grid.cellGrid.size(); i++) {
+                    FileWriter writer = new FileWriter("savequalquer.txt",true);
+                    PrintWriter writer2 = new PrintWriter(writer);
+                    if(cell.getType() == 1) {
+	                    writer2.printf("1 ;");
+	                    writer2.flush();
+	                    writer2.close();
+	                    writer.close();
+                    }
+                    else {
+	                    writer2.printf(" 0 ;");
+	                    writer2.flush();
+	                    writer2.close();
+	                    writer.close();
+                    }
+            }
+
+
+
     }
 }

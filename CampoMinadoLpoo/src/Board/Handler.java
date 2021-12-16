@@ -1,6 +1,8 @@
 package Board;
 import java.awt.Image;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
@@ -160,10 +162,8 @@ public class Handler extends Emoji implements SoundEfects{
                 Ranking saveR = new Ranking(this.name, Timer.getSeconds());     
                 saveR.rankingSave();
                 cell.setText(super.getUnicExplosion());
-                SaveProgress.progressSave();
                 System.exit(0);
             }  
-
             for(int x = 0; x < queue.size(); x++) {
                 if(!queue.get(x).isDiscovered()) {
                     current.add(queue.get(x));
@@ -194,7 +194,8 @@ public class Handler extends Emoji implements SoundEfects{
                     }
                 }
             }
-        }   
+            
+        } 
     }
 
 
@@ -237,6 +238,7 @@ public class Handler extends Emoji implements SoundEfects{
             }
     	}
     }
+
     }
     
     
