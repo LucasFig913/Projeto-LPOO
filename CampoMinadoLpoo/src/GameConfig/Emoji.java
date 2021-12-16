@@ -29,7 +29,7 @@ public abstract class Emoji {
         this.unicExplosion = unicExplosion;
     }
     public ImageIcon getIMAGEROJAO() throws IOException {
-        Image img = ImageIO.read(getClass().getResource("rojão.jpg"));
+        Image img = ImageIO.read(getClass().getResource("rojao.jpg"));
         img = img.getScaledInstance(4*Game.GRIDSIZE, 4*Game.GRIDSIZE, java.awt.Image.SCALE_SMOOTH);
         return new ImageIcon(img);
     }
