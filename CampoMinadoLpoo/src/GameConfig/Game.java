@@ -18,8 +18,9 @@ import javax.swing.border.EmptyBorder;
 
 import Board.Handler;
 import Exceptions.InvalidAttribute;
+import Interfaces.SoundEfects;
 
-public class Game extends JFrame {
+public class Game extends JFrame implements SoundEfects{
 
     /**
 	 * 
@@ -62,30 +63,38 @@ public class Game extends JFrame {
 
 
 	public Game() {
+		try {
+			SoundEfects.music();
+		} catch (UnsupportedAudioFileException e2) {
+			e2.printStackTrace();
+		} catch (IOException e2) {
+			e2.printStackTrace();
+		} catch (LineUnavailableException e2) {
+			e2.printStackTrace();
+		}
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 400, 400);
+		setBounds(100, 100, 450, 400);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.BLACK);
 		contentPane.setForeground(Color.GREEN);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		setLocationRelativeTo(null);
 		
 		JButton PLAY = new JButton("PLAY");
-		PLAY.setBackground(Color.DARK_GRAY);
-		PLAY.setForeground(Color.CYAN);
+		PLAY.setBackground(Color.WHITE);
+		PLAY.setForeground(new Color(0, 153, 0));
 		PLAY.setBounds(161, 94, 106, 43);
 		PLAY.addActionListener(e -> {
 			try {
 				gameInicialization();
 			} catch (UnsupportedAudioFileException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			} catch (IOException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			} catch (LineUnavailableException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 		});
@@ -95,8 +104,8 @@ public class Game extends JFrame {
 		PLAY.addActionListener(e -> t1.start());//new Thread(Timer.t1).start());
 		
 		JButton EASY = new JButton("EASY");
-		EASY.setBackground(Color.DARK_GRAY);
-		EASY.setForeground(Color.CYAN);
+		EASY.setBackground(Color.WHITE);
+		EASY.setForeground(new Color(0, 153, 0));
 		EASY.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				key = 1;
@@ -106,8 +115,8 @@ public class Game extends JFrame {
 		contentPane.add(EASY);
 		
 		JButton NORMAL = new JButton("NORMAL");
-		NORMAL.setBackground(Color.DARK_GRAY);
-		NORMAL.setForeground(Color.CYAN);
+		NORMAL.setBackground(Color.WHITE);
+		NORMAL.setForeground(new Color(0, 153, 0));
 		NORMAL.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				key = 2;
@@ -118,8 +127,8 @@ public class Game extends JFrame {
 		
 		JButton HARD = new JButton("MALUCO");
 
-		HARD.setBackground(Color.DARK_GRAY);
-		HARD.setForeground(Color.CYAN);
+		HARD.setBackground(Color.WHITE);
+		HARD.setForeground(new Color(0, 153, 0));
 		HARD.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				key = 3;
@@ -129,8 +138,8 @@ public class Game extends JFrame {
 		contentPane.add(HARD);
 		
 		JButton RANKING = new JButton("RANKING");
-		RANKING.setBackground(Color.DARK_GRAY);
-		RANKING.setForeground(Color.CYAN);
+		RANKING.setBackground(Color.WHITE);
+		RANKING.setForeground(new Color(0, 153, 0));
 		
 		RANKING.setBounds(161, 252, 106, 23);
 		contentPane.add(RANKING);
@@ -144,8 +153,8 @@ public class Game extends JFrame {
 		
 		JButton LOADGAME = new JButton("LOAD GAME");
 
-		LOADGAME.setBackground(Color.DARK_GRAY);
-		LOADGAME.setForeground(Color.CYAN);;
+		LOADGAME.setBackground(Color.WHITE);
+		LOADGAME.setForeground(new Color(0, 153, 0));
 		LOADGAME.setBounds(161, 286, 106, 23);
 		contentPane.add(LOADGAME);
 
@@ -153,7 +162,7 @@ public class Game extends JFrame {
 		
 		JLabel lblNewLabel = new JLabel("Quadrilha Minada");
 		lblNewLabel.setForeground(new Color(255, 255, 255));
-		lblNewLabel.setFont(new Font("Tahoma", Font.ITALIC, 44));
+		lblNewLabel.setFont(new Font("Tahoma", Font.ITALIC, 40));
 		lblNewLabel.setBounds(67, 11, 322, 101);
 		contentPane.add(lblNewLabel);
 		
@@ -171,11 +180,11 @@ public class Game extends JFrame {
     	Game.gameinit = true;
     	
     	if(key == 1) {
-    		GRIDSIZE = 15;
+    		GRIDSIZE = 13;
     	}else if(key == 2){ 
-    		GRIDSIZE = 17;
+    		GRIDSIZE = 15;
     	}else if(key == 3) {
-    		GRIDSIZE = 20;
+    		GRIDSIZE = 17;
     	}
     	new Window(WIDTH, HEIGHT, GRIDSIZE, "Campo minado - ", this, handler);  
         Window.update(0);

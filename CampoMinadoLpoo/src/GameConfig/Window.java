@@ -6,6 +6,7 @@ import java.io.IOException;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import Board.Grid;
@@ -21,6 +22,11 @@ public class Window implements SoundEfects{
     public Window(int width, int height, int gridSize, String title, Game game, Handler handler) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
         Window.setTitle(title);
         frame = new JFrame(title);
+        JOptionPane.showMessageDialog(null, "Como jogar:\n\n"
+        		+ "Botão Esquerdo do Mouse:     Abre a célula selecionada.\n"
+        		+ "Botão Direito do Mouse:     Marca com uma bandeira a célula selecionada\n"
+        		+ "____________________________________________________________________\n\n"
+        		+ "Clique em 'OK' para continuar. \n\n\nCUIDADO COM OS ROJÕES!","Bem-Vindo ao QuadrilhaMinada!", JOptionPane.DEFAULT_OPTION);
 
         frame.setPreferredSize(new Dimension(width, height));
         frame.setMinimumSize(new Dimension(width, height));

@@ -1,12 +1,14 @@
 package Board;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.io.IOException;
+
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
-import javax.swing.*;
+import javax.swing.JButton;
+import javax.swing.SwingUtilities;
 
 import GameConfig.Game;
-
-import java.awt.event.*;
-import java.io.IOException;
 
 public class Cell extends JButton {
 
@@ -26,12 +28,13 @@ public class Cell extends JButton {
 		}
 	}
 
-    public Cell(int type, int position, boolean discovered, boolean flagged, Handler handler) {
+    public Cell(int type, int position, boolean discovered, boolean flagged, Handler handler) throws IOException {
         this.type = type;
         this.position = position;
         this.discovered = discovered;
         this.flagged = flagged;
-        this.handler = handler;        
+        this.handler = handler; 
+ 
 
         addMouseListener(new MouseListener() {
             @Override

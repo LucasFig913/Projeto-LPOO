@@ -147,6 +147,7 @@ public class Handler extends Emoji implements SoundEfects{
                 }
                 cell.setText(String.valueOf(dangerCount));
             } else if(cell.getType() == 1) {
+            	SoundEfects.deathEffect();
                 for(int x = 0; x < Grid.cellGrid.size(); x++) {
                     Grid.cellGrid.get(x).setEnabled(true);
                     Grid.cellGrid.get(x).setText("");
@@ -158,7 +159,6 @@ public class Handler extends Emoji implements SoundEfects{
                 Ranking saveR = new Ranking(this.name, Timer.getSeconds());     
                 saveR.rankingSave();
                 cell.setText(super.getUnicExplosion());
-                //SoundEfects.deathEffect();
                 System.exit(0);
             }  
 
@@ -197,7 +197,6 @@ public class Handler extends Emoji implements SoundEfects{
 
 
     public void rightClick(Cell cell) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
-    	SoundEfects.click();
         if(!cell.isDiscovered()) {
             if(!cell.isFlagged()) {
                 cell.setFlagged(true);
@@ -215,7 +214,7 @@ public class Handler extends Emoji implements SoundEfects{
         
     }
     
-    public void crazyFlag(Cell cell) {
+    public void crazyFlag(Cell cell) throws IOException {
     	int newPosition = cell.getPosition();
     	if(Game.crazy == true) {
     		if(!cell.isDiscovered()) {

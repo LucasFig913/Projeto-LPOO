@@ -20,7 +20,7 @@ public interface SoundEfects {
 	}
 	
 	static void music() throws UnsupportedAudioFileException, IOException, LineUnavailableException {
-		File file = new File("sjmusica.wav");
+		File file = new File("musicSJ2.wav");
     	AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
     	Clip clip = AudioSystem.getClip();
     	clip.open(audioStream);

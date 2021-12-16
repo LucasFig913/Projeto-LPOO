@@ -59,10 +59,11 @@ public class Ranking {
 				 all = val2.get(i).toString();
 				 ext += all+"\n";
 			}
-			JOptionPane.showMessageDialog(null, ext,"Ranking",3);	
+			JOptionPane.showMessageDialog(null, ext,"Ranking",JOptionPane.DEFAULT_OPTION);	
 	 }
 	public  void rankingSave(){
-					name = JOptionPane.showInputDialog("TYPE YOUR NAME");
+		JOptionPane brank= new JOptionPane(); 			
+		name = brank.showInputDialog("TYPE YOUR NAME");	
 		try {
 			FileWriter writer = new FileWriter("ranking.txt",true);
 			PrintWriter writer2 = new PrintWriter(writer);
@@ -75,7 +76,8 @@ public class Ranking {
 		} 
 	}
 	public String toString(){
-		return "Name: " + name + " ---- "+ " Time: " + time +" seconds \n";
+		return "-----------------------------------------------------------------"
+				+ "\nName: " + name + " ----> "+ " Time: " + time +" seconds";
 	}
 
 }

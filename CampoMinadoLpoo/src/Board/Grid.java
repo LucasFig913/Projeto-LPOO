@@ -1,10 +1,15 @@
 package Board;
-import javax.swing.*;
+import java.awt.Color;
+import java.awt.GridLayout;
+import java.awt.Image;
+import java.io.IOException;
+import java.util.ArrayList;
+
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JPanel;
 
 import GameConfig.Game;
-
-import java.awt.*;
-import java.util.ArrayList;
 
 public class Grid extends JPanel {
 
@@ -21,13 +26,13 @@ public class Grid extends JPanel {
 
     public static ArrayList<Cell> cellGrid = new ArrayList<Cell>();
 
-    public Grid(GridLayout g, Handler h) {
+    public Grid(GridLayout g, Handler h) throws IOException {
         super(g);
         createCells(h);
         addCells();
+    	setBackground(new Color(0, 153, 0));
     }
-
-    public void createCells(Handler h) {
+	public void createCells(Handler h) throws IOException {
         for(int i = 1; i <= Game.MINECOUNT; i++) {
             while(!picked) {
                 int minePosition = (int) (Math.random() * bound);
@@ -79,7 +84,7 @@ public class Grid extends JPanel {
         }
     }
     
-    public void crateCrazyCells(Handler h) {
+    public void crateCrazyCells(Handler h) throws IOException {
     	if(Game.key == 4) {
     		
     		for(int i = 1; i <= Game.MINECOUNT/2; i++) {
