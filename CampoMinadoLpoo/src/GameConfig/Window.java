@@ -39,10 +39,8 @@ public class Window implements SoundEfects{
 
         frame.setContentPane(panel);
         frame.pack();
-
         frame.setVisible(true);
-        
-        SoundEfects.music();
+       
 
     }
     public static void update(int flagged) {

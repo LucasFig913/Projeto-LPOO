@@ -125,7 +125,7 @@ public class Game extends JFrame implements SoundEfects{
 		NORMAL.setBounds(161, 184, 106, 23);
 		contentPane.add(NORMAL);
 		
-		JButton HARD = new JButton("MALUCO");
+		JButton HARD = new JButton("HARD");
 
 		HARD.setBackground(Color.WHITE);
 		HARD.setForeground(new Color(0, 153, 0));

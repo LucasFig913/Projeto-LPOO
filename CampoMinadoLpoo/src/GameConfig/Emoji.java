@@ -30,7 +30,7 @@ public abstract class Emoji {
     }
     public ImageIcon getIMAGEROJAO() throws IOException {
         Image img = ImageIO.read(getClass().getResource("rojão.jpg"));
-        img = img.getScaledInstance(3*Game.GRIDSIZE, 3*Game.GRIDSIZE, java.awt.Image.SCALE_SMOOTH);
+        img = img.getScaledInstance(4*Game.GRIDSIZE, 4*Game.GRIDSIZE, java.awt.Image.SCALE_SMOOTH);
         return new ImageIcon(img);
     }
 

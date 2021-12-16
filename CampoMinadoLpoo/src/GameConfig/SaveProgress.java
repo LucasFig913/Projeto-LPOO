@@ -1,6 +1,9 @@
 package GameConfig;
 
 import java.io.BufferedReader;
+import Board.Grid;
+import Board.Handler;
+import Board.Cell;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -11,7 +14,22 @@ import java.io.IOException;
 import Exceptions.InvalidAttribute;
 
 public class SaveProgress{
-	public static void applySaveProgress(String str) throws InvalidAttribute {
+	public  void progressSave(){
+		try {
+		for(int k = 0 ; k < cellGrize.size(); k++){
+			FileWriter writer = new FileWriter("ranking.txt",true);
+			PrintWriter writer2 = new PrintWriter(writer);
+			writer2.printf(cellGrid.get(k) +";");    
+			writer2.flush();
+			writer2.close();
+			writer.close();
+		}
+		} catch (IOException e) {	
+			JOptionPane.showMessageDialog(null, "N�o foi possivel salvar, jogue novamente!");	
+		} 
+	}
+	
+	/*public static void applySaveProgress(String str) throws InvalidAttribute {
 		String[] spl = str.split("/");
 		for(int i = 0; i < spl.length;i++) {
 			String[] spl2 = spl[i].split(":");
@@ -79,6 +97,6 @@ public class SaveProgress{
 		}catch(IOException e) {
 			
 		}
-	}
+	}*/
 	
 }
