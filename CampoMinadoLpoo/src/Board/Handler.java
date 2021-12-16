@@ -11,6 +11,7 @@ import javax.swing.ImageIcon;
 import GameConfig.Emoji;
 import GameConfig.Game;
 import GameConfig.Ranking;
+import GameConfig.SaveProgress;
 import GameConfig.Timer;
 import GameConfig.Window;
 import Interfaces.SoundEfects;
@@ -159,6 +160,7 @@ public class Handler extends Emoji implements SoundEfects{
                 Ranking saveR = new Ranking(this.name, Timer.getSeconds());     
                 saveR.rankingSave();
                 cell.setText(super.getUnicExplosion());
+                SaveProgress.progressSave();
                 System.exit(0);
             }  
 

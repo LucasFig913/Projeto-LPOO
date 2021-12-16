@@ -10,16 +10,19 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.swing.JOptionPane;
 
 import Exceptions.InvalidAttribute;
 
 public class SaveProgress{
-	public  void progressSave(){
+	public static  void progressSave(){
 		try {
-		for(int k = 0 ; k < cellGrize.size(); k++){
-			FileWriter writer = new FileWriter("ranking.txt",true);
+		for(int k = 0 ; k < Grid.cellGrid.size(); k++){
+			FileWriter writer = new FileWriter("saveProgress.txt",true);
 			PrintWriter writer2 = new PrintWriter(writer);
-			writer2.printf(cellGrid.get(k) +";");    
+			writer2.printf(Grid.cellGrid.get(k) +";");    
 			writer2.flush();
 			writer2.close();
 			writer.close();
